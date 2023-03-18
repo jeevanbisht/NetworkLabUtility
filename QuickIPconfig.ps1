@@ -1,6 +1,6 @@
 ﻿$netAdapter=Get-NetAdapter
 Get-NetIPAddress -InterfaceIndex $netAdapter.ifIndex  | Remove-NetIPAddress
-Get-NetRoute -InterfaceIndex 6 -DestinationPrefix "0.0.0.0/0" | Remove-NetRoute -ErrorAction SilentlyContinue
+Get-NetRoute -InterfaceIndex $netAdapter.ifIndex -DestinationPrefix "0.0.0.0/0" | Remove-NetRoute -ErrorAction SilentlyContinue
 
 
 New-NetIPAddress -InterfaceIndex $netAdapter.ifIndex `
